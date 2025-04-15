@@ -1,36 +1,158 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Portfolio Website
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-15.2.5-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 
-First, run the development server:
+A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features smooth animations, dark/light mode, multilingual support (English and Arabic), and a Formspree-powered contact form.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Live Demo
+
+[View the live portfolio](https://haian.me)
+
+## 🌟 Features
+
+- ⚡ **Next.js 15** with App Router for optimal performance
+- 🎨 **Theme Switching** between light and dark modes
+- 🌐 **Multilingual Support** for English and Arabic with RTL handling
+- 📱 **Fully Responsive** design for all device sizes
+- ✨ **Smooth Animations** using Anime.js and Framer Motion
+- 📝 **Contact Form** powered by Formspree
+- 🔍 **SEO Optimized** with proper metadata
+- 🎭 **Custom Arabic Typography** with proper font rendering
+
+## 🛠️ Technologies
+
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: React Icons
+- **Animations**: Anime.js, Framer Motion
+- **Form Handling**: Formspree
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.17.0 or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/haianibrahim/portfolio.git
+   cd portfolio
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+3. Create an `.env` file based on `.env.example`
+   ```bash
+   cp .env.example .env
+   ```
+   
+4. Update the Formspree endpoint in the `.env` file
+   ```
+   NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/your-endpoint-here
+   ```
+
+5. Start the development server
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## 📂 Project Structure
+
+```
+portfolio/
+├── public/          # Static assets
+├── src/
+│   ├── app/         # App router pages
+│   ├── components/  # React components
+│   ├── contexts/    # Context providers
+│   ├── hooks/       # Custom hooks
+│   ├── providers/   # Provider components
+│   └── translations/ # Translation files
+├── .env.example     # Environment variables example
+├── next.config.ts   # Next.js configuration
+└── tailwind.config.ts # Tailwind CSS configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Theme Colors
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit the `globals.css` file to change the theme colors:
 
-## Learn More
+```css
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    /* other color variables */
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    /* other dark mode color variables */
+  }
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Update the personal information in the respective components:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/components/hero.tsx` - Main hero section
+- `src/components/about.tsx` - About section
+- `src/components/education.tsx` - Education and experience
+- `src/components/projects.tsx` - Portfolio projects
+- `src/components/contact.tsx` - Contact information
 
-## Deploy on Vercel
+## 🌙 Theme Toggle
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The portfolio includes a custom theme toggle component that switches between light and dark modes:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```tsx
+// src/components/theme-toggle.tsx
+export function ThemeToggle() {
+  // Implementation details
+}
+```
+
+## 🌐 Language Switching
+
+The site supports multiple languages with a custom language toggle:
+
+```tsx
+// src/components/language-toggle.tsx
+export function LanguageToggle() {
+  // Implementation details
+}
+```
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Anime.js](https://animejs.com/)
+- [Formspree](https://formspree.io/)
+
+---
+
+<p align="center">Designed and developed with ❤️ by <a href="https://github.com/haianibrahim">Haian Ibrahim</a></p>
