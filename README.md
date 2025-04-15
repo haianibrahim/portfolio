@@ -9,7 +9,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 
 ## ✨ Live Demo
 
-[View the live portfolio](https://haian.me)
+<a href="https://haian.me" target="_blank">View the live portfolio</a>
 
 ## 🌟 Features
 

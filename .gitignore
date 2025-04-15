@@ -43,3 +43,6 @@ next-env.d.ts
 # cursor editor files
 /.cursor/
 .cursorrules
+
+# project specific
+INSTRUCTIONS.md
