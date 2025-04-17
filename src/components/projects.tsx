@@ -9,24 +9,28 @@ const projects = [
   {
     title: "Zefoy Android App",
     description: "An app for TikTok Growth with +1M downloads",
+    descriptionAr: "تطبيق لنمو متابعين تيك توك مع أكثر من مليون تحميل",
     technologies: ["Java", "JWT", "RESTful API", "Google Play In-App Billing API", "Subscriptions", "Android Studio"],
     link: "https://play.google.com/store/apps/details?id=com.hkiapps.zefoynew&utm_source=portfolio&utm_medium=haianporfolio&campaign=myprojects"
   },
   {
     title: "Zefoy App Backend",
     description: "Backend for the Zefoy Android App",
+    descriptionAr: "الواجهة الخلفية لتطبيق زيفوي للأندرويد",
     technologies: ["Laravel 12", "Google Play Developer API", "JWT"],
     link: "https://play.google.com/store/apps/details?id=com.hkiapps.zefoynew&utm_source=portfolio&utm_medium=haianporfolio&campaign=myprojects"
   },
   {
     title: "TikTok PHP Scraper",
     description: "A Super Fast scraper using only PHP",
+    descriptionAr: "أداة استخراج بيانات سريعة جدًا باستخدام PHP فقط",
     technologies: ["PHP", "Web Scraping", "Curl", "JSON", "DOM"],
     github: "https://github.com/hki98/tiktok-custom-php-scraper"
   },
   {
     title: "Movies Search App",
     description: "Educational project for searching movies",
+    descriptionAr: "مشروع تعليمي للبحث عن الأفلام",
     technologies: ["React 19", "React Hooks", "Debouncing", "Appwrite", "NoSQL", "TMDB API"],
     link: "https://haian.me/demo/movies-app",
     github: "https://github.com/hki98/movies-search-app"
@@ -34,7 +38,7 @@ const projects = [
 ]
 
 export function Projects() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const sectionRef = useRef<HTMLElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   
@@ -153,7 +157,13 @@ export function Projects() {
               style={{ backgroundColor: 'hsl(var(--card))' }}
             >
               <h3 className="text-xl font-bold">{project.title}</h3>
-              <p className="mt-2" style={{ color: 'hsl(var(--muted-foreground))' }}>{project.description}</p>
+              <p className="mt-2" style={{ color: 'hsl(var(--muted-foreground))' }}>
+                {language === 'ar' && project.descriptionAr ? (
+                  <span className="arabic-text">{project.descriptionAr}</span>
+                ) : (
+                  project.description
+                )}
+              </p>
               
               <div className="technologies-list mt-4 flex flex-wrap gap-2">
                 {project.technologies.slice(0, 3).map((tech) => (
