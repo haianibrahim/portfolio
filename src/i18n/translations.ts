@@ -64,7 +64,12 @@ export type TranslationKeys =
   | 'lang.a1'
   | 'tabs.education'
   | 'tabs.experience'
-  | 'tabs.languages';
+  | 'tabs.languages'
+  | 'nav.logo'
+  | 'nav.about'
+  | 'nav.education'
+  | 'nav.projects'
+  | 'nav.contact';
 
 export type Translations = {
   [key in TranslationKeys]: string;
@@ -136,6 +141,11 @@ export const translations: Record<Language, Translations> = {
     'tabs.education': 'Education',
     'tabs.experience': 'Experience',
     'tabs.languages': 'Languages',
+    'nav.logo': 'Ahmad',
+    'nav.about': 'About',
+    'nav.education': 'Education',
+    'nav.projects': 'Projects',
+    'nav.contact': 'Contact',
   },
   ar: {
     'websiteMetadata.title': 'معرض أعمالي',
@@ -202,5 +212,10 @@ export const translations: Record<Language, Translations> = {
     'tabs.education': 'التعليم',
     'tabs.experience': 'الخبرة',
     'tabs.languages': 'اللغات',
+    'nav.logo': 'أحمد',
+    'nav.about': 'نبذة عني',
+    'nav.education': 'التعليم',
+    'nav.projects': 'المشاريع',
+    'nav.contact': 'اتصل بي',
   }
 }; 
