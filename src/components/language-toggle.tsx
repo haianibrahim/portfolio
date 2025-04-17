@@ -17,7 +17,7 @@ export function LanguageToggle({ className, ...props }: LanguageToggleProps) {
 
   // Animation for the toggle button
   useAnime({
-    ref: buttonRef as React.RefObject<HTMLElement>,
+    ref: buttonRef,
     eventName: "click",
     scale: [0.95, 1],
     duration: 150,

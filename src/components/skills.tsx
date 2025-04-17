@@ -35,7 +35,6 @@ const skills = [
 ]
 
 function SkillCard({ skill, index }: { skill: Skill, index: number }) {
-  const { t } = useLanguage()
   const cardRef = useRef<HTMLDivElement>(null)
   
   useAnime({
@@ -94,7 +93,7 @@ export function Skills() {
             animate(".skill-grid .skill-card", {
               translateY: [50, 0],
               opacity: [0, 1],
-              delay: function(_el: any, i: number) { return 300 + (i * 50) },
+              delay: (_el, i: number) => 300 + (i * 50),
               easing: "easeOutExpo",
               duration: 800,
             });

@@ -67,7 +67,7 @@ export function Projects() {
               translateY: [20, 0],
               easing: "easeOutExpo",
               duration: 800,
-              delay: function(_el: any, i: number) { return i * 150 }
+              delay: (_el, i: number) => i * 150
             })
             
             observer.disconnect()
@@ -149,7 +149,7 @@ export function Projects() {
           {t('projects.title')}
         </h2>
         <div className="projects-container grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div 
               key={project.title} 
               className="project-card flex flex-col rounded-xl border p-6 shadow-sm opacity-0 transition-all duration-300"

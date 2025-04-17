@@ -3,6 +3,8 @@
 import React, { useRef, useEffect, useState } from "react"
 import { animate } from "animejs"
 import { useLanguage } from "@/contexts/language-context"
+import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
 
 export function Education() {
   const { t, language } = useLanguage()
@@ -73,10 +75,6 @@ export function Education() {
     })
   }, [activeTab])
 
-  const handleTabChange = (tab: 'education' | 'experience' | 'languages') => {
-    setActiveTab(tab)
-  }
-
   return (
     <section id="education" ref={sectionRef} className="py-12 md:py-16 lg:py-20 bg-muted/30">
       <div className="container">
@@ -89,69 +87,69 @@ export function Education() {
         
         {/* Tab navigation */}
         <div className="mx-auto max-w-3xl mb-8">
-          <div className="flex flex-wrap justify-center border-b">
-            <button 
-              onClick={() => handleTabChange('education')}
-              className={`relative px-6 py-3 font-medium text-sm md:text-base transition-all ${
-                activeTab === 'education' 
-                  ? 'text-primary font-semibold bg-primary/5' 
-                  : 'hover:text-primary/70 hover:bg-primary/5'
-              }`}
-              aria-selected={activeTab === 'education'}
+          <div className="mb-6 flex w-full border-b">
+            <button
+              onClick={() => setActiveTab("education")}
+              className={cn(
+                "relative pb-2 text-sm font-medium transition-colors focus-visible:outline-none",
+                activeTab === "education"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              )}
+              aria-current={activeTab === "education" ? "page" : undefined}
             >
-              {t('tabs.education')}
-              {/* Always show indicator, but style it differently based on active state */}
-              <div className={`absolute bottom-0 left-0 w-full h-1 ${
-                activeTab === 'education' 
-                  ? 'bg-primary active-indicator' 
-                  : 'bg-transparent'
-              }`} style={{ 
-                transform: activeTab === 'education' ? 'none' : 'scaleX(0)',
-                transformOrigin: 'left',
-                transition: 'background-color 0.2s ease'
-              }}></div>
+              {t("tabs.education")}
+              {activeTab === "education" && (
+                <motion.span
+                  layoutId="activeTabIndicator"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                />
+              )}
             </button>
-            <button 
-              onClick={() => handleTabChange('experience')}
-              className={`relative px-6 py-3 font-medium text-sm md:text-base transition-all ${
-                activeTab === 'experience' 
-                  ? 'text-primary font-semibold bg-primary/5' 
-                  : 'hover:text-primary/70 hover:bg-primary/5'
-              }`}
-              aria-selected={activeTab === 'experience'}
+            <button
+              onClick={() => setActiveTab("experience")}
+              className={cn(
+                "relative ml-8 pb-2 text-sm font-medium transition-colors focus-visible:outline-none",
+                activeTab === "experience"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              )}
+              aria-current={activeTab === "experience" ? "page" : undefined}
             >
-              {t('tabs.experience')}
-              {/* Always show indicator, but style it differently based on active state */}
-              <div className={`absolute bottom-0 left-0 w-full h-1 ${
-                activeTab === 'experience' 
-                  ? 'bg-primary active-indicator' 
-                  : 'bg-transparent'
-              }`} style={{ 
-                transform: activeTab === 'experience' ? 'none' : 'scaleX(0)',
-                transformOrigin: 'left',
-                transition: 'background-color 0.2s ease'
-              }}></div>
+              {t("tabs.experience")}
+              {activeTab === "experience" && (
+                <motion.span
+                  layoutId="activeTabIndicator"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                />
+              )}
             </button>
-            <button 
-              onClick={() => handleTabChange('languages')}
-              className={`relative px-6 py-3 font-medium text-sm md:text-base transition-all ${
-                activeTab === 'languages' 
-                  ? 'text-primary font-semibold bg-primary/5' 
-                  : 'hover:text-primary/70 hover:bg-primary/5'
-              }`}
-              aria-selected={activeTab === 'languages'}
+            <button
+              onClick={() => setActiveTab("languages")}
+              className={cn(
+                "relative ml-8 pb-2 text-sm font-medium transition-colors focus-visible:outline-none",
+                activeTab === "languages"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              )}
+              aria-current={activeTab === "languages" ? "page" : undefined}
             >
-              {t('tabs.languages')}
-              {/* Always show indicator, but style it differently based on active state */}
-              <div className={`absolute bottom-0 left-0 w-full h-1 ${
-                activeTab === 'languages' 
-                  ? 'bg-primary active-indicator' 
-                  : 'bg-transparent'
-              }`} style={{ 
-                transform: activeTab === 'languages' ? 'none' : 'scaleX(0)',
-                transformOrigin: 'left',
-                transition: 'background-color 0.2s ease'
-              }}></div>
+              {t("tabs.languages")}
+              {activeTab === "languages" && (
+                <motion.span
+                  layoutId="activeTabIndicator"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                />
+              )}
             </button>
           </div>
         </div>

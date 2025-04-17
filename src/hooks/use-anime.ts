@@ -1,5 +1,6 @@
 "use client"
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef } from "react"
 import { animate } from "animejs"
 
@@ -12,7 +13,7 @@ interface AnimeInstance {
 
 interface UseAnimeProps {
   targets?: any
-  ref?: React.RefObject<HTMLElement>
+  ref?: React.RefObject<any>
   eventName?: string
   scale?: any
   rotate?: any
@@ -39,6 +40,7 @@ export function useAnime({
 }: UseAnimeProps): AnimeInstance | null {
   const animeRef = useRef<AnimeInstance | null>(null)
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const targetElement = targets || (ref?.current ? ref.current : null)
     if (!targetElement) return
@@ -77,6 +79,7 @@ export function useAnime({
       }
     }
   }, [ref, targets, eventName, ...Object.values(animeParams)])
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   return animeRef.current
 } 

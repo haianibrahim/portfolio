@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/language-context"
 import { animate } from "animejs"
 
 export function ContactForm() {
-  const { t, language } = useLanguage()
+  const { language } = useLanguage()
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [formErrors, setFormErrors] = useState<{
     name?: string
@@ -21,7 +21,7 @@ export function ContactForm() {
       opacity: [0, 1],
       easing: "easeOutExpo",
       duration: 800,
-      delay: function(_el: any, i: number) { return 700 + (i * 120) }
+      delay: (_el, i: number) => 700 + (i * 120)
     })
   }, [])
   

@@ -105,7 +105,7 @@ export function Contact() {
               translateY: [20, 0],
               easing: "easeOutExpo",
               duration: 800,
-              delay: function(_el: any, i: number) { return i * 100 }
+              delay: (_el, i: number) => i * 100
             })
             
             // Also animate the divider elements when they come into view
