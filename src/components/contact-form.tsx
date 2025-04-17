@@ -4,7 +4,11 @@ import React, { useState, useEffect } from "react"
 import { useLanguage } from "@/contexts/language-context"
 import { animate } from "animejs"
 
-export function ContactForm() {
+interface ContactFormProps {
+  closeModal?: () => void;
+}
+
+export function ContactForm({ closeModal }: ContactFormProps) {
   const { language } = useLanguage()
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [formErrors, setFormErrors] = useState<{
@@ -91,6 +95,11 @@ export function ContactForm() {
       // Reset status after 5 seconds
       setTimeout(() => {
         setFormStatus("idle")
+        if (closeModal) {
+          setTimeout(() => {
+            closeModal();
+          }, 1000);
+        }
       }, 5000)
     } catch (error) {
       console.error("Form submission error:", error)
