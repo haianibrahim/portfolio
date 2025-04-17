@@ -1,135 +1,165 @@
 "use client"
 
-import React, { useRef, useEffect } from "react"
-import { animate } from "animejs"
+import * as React from "react"
 import { useAnime } from "@/hooks/use-anime"
 import { useLanguage } from "@/contexts/language-context"
 
-type Skill = {
-  name: string;
-  category: string;
-}
+type SkillType = "backend" | "frontend" | "mobile" | "database" | "tools" | "others"
 
-const skills = [
-  { name: "PHP", category: "Backend" },
-  { name: "JavaScript", category: "Frontend" },
-  { name: "jQuery", category: "Frontend" },
-  { name: "HTML5/CSS3", category: "Frontend" },
-  { name: "Tailwind", category: "Frontend" },
-  { name: "TypeScript", category: "Frontend" },
-  { name: "ReactJS", category: "Frontend" },
-  { name: "NextJS", category: "Frontend" },
-  { name: "NodeJS", category: "Backend" },
-  { name: "ExpressJS", category: "Backend" },
-  { name: "Laravel", category: "Backend" },
-  { name: "Symfony", category: "Backend" },
-  { name: "Java", category: "Mobile" },
-  { name: "Android", category: "Mobile" },
-  { name: "API", category: "Backend" },
-  { name: "MySQL", category: "Database" },
-  { name: "MongoDB", category: "Database" },
-  { name: "Appwrite", category: "BaaS" },
-  { name: "Firebase", category: "BaaS" },
-  { name: "Supabase", category: "BaaS" },
-  { name: "Unit Testing", category: "DevOps" },
-  { name: "Git and GitHub", category: "DevOps" },
-  { name: "AI IDEs", category: "AI" },
-  { name: "AI Prompting", category: "AI" },
-  { name: "AI Fundamentals", category: "AI" },
-]
-
-function SkillCard({ skill, index }: { skill: Skill, index: number }) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  
-  useAnime({
-    targets: cardRef.current,
-    translateY: [50, 0],
-    opacity: [0, 1],
-    easing: "easeOutExpo",
-    duration: 600,
-    delay: 300 + index * 50,
-  })
-  
-  useAnime({
-    scale: [1, 1.05, 1],
-    rotate: [0, 2, 0],
-    duration: 400,
-    easing: "easeInOutSine",
-    autoplay: false,
-    targets: cardRef.current,
-    eventName: "mouseenter"
-  })
-
-  return (
-    <div
-      ref={cardRef}
-      className="flex flex-col items-center rounded-lg border p-4 shadow-sm transition-colors hover:bg-[hsla(var(--card)/0.8)]"
-      style={{ backgroundColor: 'hsl(var(--card))' }}
-    >
-      <span className="text-sm font-medium" style={{ color: 'hsl(var(--muted-foreground))' }}>{skill.category}</span>
-      <h3 className="text-center text-lg font-semibold">{skill.name}</h3>
-    </div>
-  )
+interface Skill {
+  name: string
+  type: SkillType
 }
 
 export function Skills() {
-  const { t } = useLanguage()
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const headingRef = useRef<HTMLHeadingElement>(null)
-  
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const titleRef = React.useRef<HTMLDivElement>(null)
+  const cardsRef = React.useRef<HTMLDivElement>(null)
+  const { t, language } = useLanguage()
+
   useAnime({
-    targets: headingRef.current,
-    translateY: [30, 0],
+    targets: titleRef.current,
+    translateY: [50, 0],
     opacity: [0, 1],
-    easing: "easeOutExpo",
-    duration: 800,
-    delay: 100
+    duration: 1000,
+    easing: 'easeOutExpo',
   })
-  
-  // Staggered entrance on scroll
-  useEffect(() => {
-    if (!sectionRef.current) return
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animate(".skill-grid .skill-card", {
-              translateY: [50, 0],
-              opacity: [0, 1],
-              delay: (_el, i: number) => 300 + (i * 50),
-              easing: "easeOutExpo",
-              duration: 800,
-            });
-            observer.disconnect()
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-    
-    observer.observe(sectionRef.current)
-    
-    return () => {
-      observer.disconnect()
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && cardsRef.current) {
+          // Animate each card with staggered timing
+          useAnime({
+            targets: '.skill-card',
+            translateY: [50, 0],
+            opacity: [0, 1],
+            delay: useAnime.stagger(100),
+            duration: 800,
+            easing: 'easeOutCubic',
+          })
+          // Disconnect after triggering the animation
+          observer.disconnect()
+        }
+      })
+    }, { threshold: 0.1 })
+
+    if (cardsRef.current) {
+      observer.observe(cardsRef.current)
     }
+
+    return () => observer.disconnect()
   }, [])
 
+  const skills: Skill[] = [
+    // Backend
+    { name: "PHP", type: "backend" },
+    { name: "Node.js", type: "backend" },
+    { name: "Express", type: "backend" },
+    { name: "Laravel", type: "backend" },
+    { name: "Next.js", type: "backend" },
+    
+    // Frontend
+    { name: "React", type: "frontend" },
+    { name: "JavaScript", type: "frontend" },
+    { name: "TypeScript", type: "frontend" },
+    { name: "HTML/CSS", type: "frontend" },
+    { name: "Tailwind CSS", type: "frontend" },
+    { name: "SCSS/SASS", type: "frontend" },
+    
+    // Mobile
+    { name: "Java", type: "mobile" },
+    { name: "Android Native", type: "mobile" },
+    
+    // Database
+    { name: "MySQL", type: "database" },
+    { name: "MongoDB", type: "database" },
+    { name: "PostgreSQL", type: "database" },
+    { name: "Firebase", type: "database" },
+    { name: "Redis", type: "database" },
+    { name: "Supabase", type: "database" },
+    { name: "GraphQL", type: "database" },
+    
+    // Tools
+    { name: "Git", type: "tools" },
+    { name: "Docker", type: "tools" },
+    { name: "AWS", type: "tools" },
+    { name: "CI/CD", type: "tools" },
+    { name: "Webpack", type: "tools" },
+    { name: "Vite", type: "tools" },
+    
+    // Others
+    { name: "REST API", type: "others" },
+    { name: "WebSockets", type: "others" },
+    { name: "JWT", type: "others" },
+    { name: "OAuth", type: "others" },
+  ]
+
+  const getSkillsByType = (type: SkillType) => {
+    return skills.filter(skill => skill.type === type)
+  }
+
+  const SkillCard = ({ title, skills }: { title: string, skills: Skill[] }) => (
+    <div className="skill-card w-full md:w-[calc(50%-0.5rem)] p-4 border rounded-lg bg-card transition-all duration-300 hover:shadow-md hover:border-primary/30 cursor-pointer">
+      <h3 className="text-lg font-medium mb-3">
+        <span className={language === 'ar' ? 'arabic-text' : ''}>
+          {title}
+        </span>
+      </h3>
+      <div className="flex flex-wrap gap-2">
+        {skills.map(skill => (
+          <span 
+            key={skill.name} 
+            className="px-2 py-1 text-sm bg-primary/10 text-primary rounded-md transition-all duration-300 hover:bg-primary/20 cursor-default"
+          >
+            {skill.name}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+
   return (
-    <section id="skills" ref={sectionRef} className="py-12 md:py-16 lg:py-20">
-      <div className="container">
-        <h2 
-          ref={headingRef}
-          className="mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl"
-        >
-          {t('skills.title')}
-        </h2>
-        <div className="skill-grid grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {skills.map((skill, index) => (
-            <div key={skill.name} className="skill-card opacity-0">
-              <SkillCard skill={skill} index={index} />
-            </div>
-          ))}
+    <section id="skills" className="py-16 container">
+      <div ref={containerRef} className="max-w-4xl mx-auto">
+        <div ref={titleRef} className="mb-10 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold">
+            {language === 'ar' ? (
+              <span className="arabic-text">{t('skills')}</span>
+            ) : t('skills')}
+          </h2>
+          <p className="mt-2 text-muted-foreground max-w-md mx-auto">
+            {language === 'ar' ? (
+              <span className="arabic-text">{t('skillsDescription')}</span>
+            ) : t('skillsDescription')}
+          </p>
+        </div>
+        
+        <div ref={cardsRef} className="flex flex-wrap gap-4">
+          <SkillCard 
+            title={t('backend')} 
+            skills={getSkillsByType('backend')} 
+          />
+          <SkillCard 
+            title={t('frontend')} 
+            skills={getSkillsByType('frontend')} 
+          />
+          <SkillCard 
+            title={t('mobile')} 
+            skills={getSkillsByType('mobile')} 
+          />
+          <SkillCard 
+            title={t('database')} 
+            skills={getSkillsByType('database')} 
+          />
+          <SkillCard 
+            title={t('tools')} 
+            skills={getSkillsByType('tools')} 
+          />
+          <SkillCard 
+            title={t('others')} 
+            skills={getSkillsByType('others')} 
+          />
         </div>
       </div>
     </section>

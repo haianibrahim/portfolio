@@ -76,7 +76,7 @@ export function Header() {
 
         {/* Mobile menu button */}
         <button 
-          className="md:hidden flex items-center"
+          className="md:hidden flex items-center cursor-pointer"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -100,25 +100,25 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-6 text-sm">
           <button 
             onClick={() => scrollToSection('skills')}
-            className="font-medium transition-colors hover:text-[hsl(var(--primary))]"
+            className="font-medium transition-colors hover:text-[hsl(var(--primary))] cursor-pointer"
           >
             {t('skills')}
           </button>
           <button 
             onClick={() => scrollToSection('education')}
-            className="font-medium transition-colors hover:text-[hsl(var(--primary))]"
+            className="font-medium transition-colors hover:text-[hsl(var(--primary))] cursor-pointer"
           >
             {t('education')}
           </button>
           <button 
             onClick={() => scrollToSection('projects')}
-            className="font-medium transition-colors hover:text-[hsl(var(--primary))]"
+            className="font-medium transition-colors hover:text-[hsl(var(--primary))] cursor-pointer"
           >
             {t('projects')}
           </button>
           <button 
             onClick={() => scrollToSection('contact')}
-            className="font-medium transition-colors hover:text-[hsl(var(--primary))]"
+            className="font-medium transition-colors hover:text-[hsl(var(--primary))] cursor-pointer"
           >
             {t('contact')}
           </button>
@@ -137,25 +137,25 @@ export function Header() {
         >
           <nav className="container flex flex-col py-4">
             <button 
-              className="py-3 font-medium text-left transition-colors hover:text-[hsl(var(--primary))]"
+              className="py-3 font-medium text-left transition-colors hover:text-[hsl(var(--primary))] cursor-pointer"
               onClick={() => scrollToSection('skills')}
             >
               {t('skills')}
             </button>
             <button 
-              className="py-3 font-medium text-left transition-colors hover:text-[hsl(var(--primary))]"
+              className="py-3 font-medium text-left transition-colors hover:text-[hsl(var(--primary))] cursor-pointer"
               onClick={() => scrollToSection('education')}
             >
               {t('education')}
             </button>
             <button 
-              className="py-3 font-medium text-left transition-colors hover:text-[hsl(var(--primary))]"
+              className="py-3 font-medium text-left transition-colors hover:text-[hsl(var(--primary))] cursor-pointer"
               onClick={() => scrollToSection('projects')}
             >
               {t('projects')}
             </button>
             <button 
-              className="py-3 font-medium text-left transition-colors hover:text-[hsl(var(--primary))]"
+              className="py-3 font-medium text-left transition-colors hover:text-[hsl(var(--primary))] cursor-pointer"
               onClick={() => scrollToSection('contact')}
             >
               {t('contact')}

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { animate } from "animejs"
 import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
@@ -79,6 +79,7 @@ export function Contact() {
   const { t, language } = useLanguage()
   const sectionRef = useRef<HTMLElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
+  const [showModal, setShowModal] = useState(false)
   
   useEffect(() => {
     if (!headingRef.current) return
@@ -185,87 +186,199 @@ export function Contact() {
     }
   }, [])
 
+  const openModal = () => {
+    setShowModal(true)
+  }
+
+  const closeModal = () => {
+    setShowModal(false)
+  }
+
   return (
-    <section id="contact" ref={sectionRef} className="py-12 md:py-16 lg:py-20">
-      <div className="container">
-        <h2 
-          ref={headingRef}
-          className="mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl"
-        >
-          {t('contact.title')}
-        </h2>
-        
-        <div className="mx-auto max-w-3xl">
-          {/* Contact information cards */}
-          <div className="contact-container grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {contactInfo.map((info) => (
-              <Link 
-                key={info.platform}
-                href={info.link}
-                target="_blank"
-                className="contact-item flex flex-col items-center rounded-lg border p-6 text-center shadow-sm opacity-0 transition-colors hover:bg-[hsl(var(--card)/0.8)]"
-                style={{ backgroundColor: 'hsl(var(--card))' }}
+    <section id="contact" ref={sectionRef} className="py-12 md:py-16 lg:py-20" style={{ backgroundColor: "hsl(var(--muted))" }}>
+      <div className="container mx-auto px-4">
+        <div className="mx-auto mb-8 max-w-xl text-center">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+            {t('contact.title')}
+          </h2>
+          <p className="text-muted-foreground">{t('contact.subtitle')}</p>
+        </div>
+
+        <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
+          {/* GitHub */}
+          <a
+            href="https://github.com/hki98"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center rounded-lg border p-6 text-center shadow-sm transition-all hover:shadow-md cursor-pointer"
+            style={{
+              backgroundColor: "hsl(var(--card))",
+              borderColor: "hsl(var(--border))",
+            }}
+          >
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full" style={{ backgroundColor: "hsl(var(--primary) / 0.1)" }}>
+              <svg
+                className="size-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ color: "hsl(var(--primary))" }}
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full text-[hsl(var(--primary))]"
-                  style={{ backgroundColor: 'hsl(var(--primary) / 0.1)' }}
-                >
-                  {info.icon}
-                </div>
-                <h3 className="text-lg font-medium">
-                  {language === 'en' ? info.platform : info.platformAr || info.platform}
-                </h3>
-                <p className="mt-1 text-sm" style={{ color: 'hsl(var(--muted-foreground))' }}>
-                  {language === 'en' 
-                    ? (info.display || info.link.replace(/(mailto:|https?:\/\/)/g, ''))
-                    : (info.displayAr || info.display || info.link.replace(/(mailto:|https?:\/\/)/g, ''))}
-                </p>
-              </Link>
-            ))}
-          </div>
-          
-          {/* Contact form divider - enhanced visual treatment */}
-          <div className="my-16 text-center">
-            <div className="relative flex items-center justify-center mb-4">
-              <div className="divider-line absolute left-0 w-1/3 h-px bg-gradient-to-r from-transparent to-primary/30 opacity-0"></div>
-              <div className="divider-icon z-10 flex items-center justify-center w-12 h-12 rounded-full shadow-sm opacity-0" style={{ 
-                backgroundColor: 'hsl(var(--card))',
-                boxShadow: '0 0 20px rgba(var(--primary), 0.1)'
-              }}>
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  strokeWidth={1.5} 
-                  stroke="currentColor" 
-                  className="w-6 h-6 text-primary"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
-                </svg>
-              </div>
-              <div className="divider-line absolute right-0 w-1/3 h-px bg-gradient-to-l from-transparent to-primary/30 opacity-0"></div>
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" 
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2" />
+              </svg>
             </div>
-            <h3 className="divider-text font-medium tracking-wide mb-4 opacity-0" style={{ color: 'hsl(var(--primary))' }}>
-              {language === 'en' ? 'Or send me a message' : <span className="arabic-text">أو أرسل لي رسالة</span>}
+            <h3 className="mb-2 text-lg font-medium">GitHub</h3>
+            <p className="text-muted-foreground">@hki98</p>
+          </a>
+
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/haian-ibrahim/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center rounded-lg border p-6 text-center shadow-sm transition-all hover:shadow-md cursor-pointer"
+            style={{
+              backgroundColor: "hsl(var(--card))",
+              borderColor: "hsl(var(--border))",
+            }}
+          >
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full" style={{ backgroundColor: "hsl(var(--primary) / 0.1)" }}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ color: "hsl(var(--primary))" }}
+              >
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </div>
+            <h3 className="mb-2 text-lg font-medium">
+              <span className={language === 'ar' ? 'arabic-text' : ''}>
+                {t('contact.linkedin')}
+              </span>
             </h3>
-            <p className="divider-text text-sm max-w-md mx-auto mb-8 opacity-0" style={{ color: 'hsl(var(--muted-foreground))' }}>
-              {language === 'en' 
-                ? "Have a question or want to work together? Drop me a message using the form below."
-                : <span className="arabic-text">هل لديك سؤال أو ترغب في العمل معًا؟ أرسل لي رسالة باستخدام النموذج أدناه.</span>
-              }
-            </p>
-          </div>
-          
-          {/* Formspree contact form */}
-          <div className="contact-form">
-            <ContactForm />
-          </div>
-          
-          <div className="mt-12 text-center">
-            <p style={{ color: 'hsl(var(--muted-foreground))' }}>
-              {t('contact.subtitle')}
-            </p>
+            <p className="text-muted-foreground">{t('contact.connect')}</p>
+          </a>
+
+          {/* Contact Form */}
+          <div
+            onClick={openModal}
+            className="flex flex-col items-center justify-center rounded-lg border p-6 text-center shadow-sm transition-all hover:shadow-md cursor-pointer"
+            style={{
+              backgroundColor: "hsl(var(--card))",
+              borderColor: "hsl(var(--border))",
+            }}
+          >
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full" style={{ backgroundColor: "hsl(var(--primary) / 0.1)" }}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ color: "hsl(var(--primary))" }}
+              >
+                <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
+                <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+              </svg>
+            </div>
+            <h3 className="mb-2 text-lg font-medium">{t('contact.contact_form')}</h3>
+            <p className="text-muted-foreground">{t('contact.send_message')}</p>
           </div>
         </div>
+
+        <div className="mx-auto mt-6 grid max-w-4xl">
+          {/* Address */}
+          <a
+            href="https://maps.google.com/?q=Eschenburgstr.,23568,Lübeck,Germany"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center rounded-lg border p-6 text-center shadow-sm transition-all hover:shadow-md cursor-pointer"
+            style={{
+              backgroundColor: "hsl(var(--card))",
+              borderColor: "hsl(var(--border))",
+            }}
+          >
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full" style={{ backgroundColor: "hsl(var(--primary) / 0.1)" }}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ color: "hsl(var(--primary))" }}
+              >
+                <path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+              </svg>
+            </div>
+            <h3 className="mb-2 text-lg font-medium">
+              <span className={language === 'ar' ? 'arabic-text' : ''}>
+                {t('contact.address')}
+              </span>
+            </h3>
+            <p className="text-muted-foreground">
+              {language === 'ar' ? (
+                <span className="arabic-text">شارع إيشنبورغ، ليوبيك، ألمانيا</span>
+              ) : (
+                "Eschenburgstr., 23568 Lübeck, Germany"
+              )}
+            </p>
+          </a>
+        </div>
+
+        {showModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div
+              className="relative mx-4 max-h-[90vh] w-full max-w-md overflow-auto rounded-lg p-6"
+              style={{ backgroundColor: "hsl(var(--background))" }}
+            >
+              <button
+                onClick={closeModal}
+                className="absolute right-4 top-4 cursor-pointer rounded-full p-1 hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+              </button>
+              <h3 className="mb-4 text-xl font-bold">
+                {t('contact.send_message')}
+              </h3>
+              <ContactForm closeModal={closeModal} />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )

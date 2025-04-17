@@ -25,6 +25,13 @@ export type TranslationKeys =
   | 'hero.view_projects'
   | 'skills.title'
   | 'skills.subtitle'
+  | 'skillsDescription'
+  | 'backend'
+  | 'frontend'
+  | 'mobile'
+  | 'database'
+  | 'tools'
+  | 'others'
   | 'projects.title'
   | 'projects.subtitle'
   | 'projects.view'
@@ -32,6 +39,12 @@ export type TranslationKeys =
   | 'contact.title'
   | 'contact.subtitle'
   | 'contact.submit'
+  | 'contact.email'
+  | 'contact.contact_form'
+  | 'contact.connect'
+  | 'contact.send_message'
+  | 'contact.linkedin'
+  | 'contact.address'
   | 'websiteMetadata.title'
   | 'websiteMetadata.description'
   | 'edu.title'
@@ -46,6 +59,9 @@ export type TranslationKeys =
   | 'lang.english'
   | 'lang.arabic'
   | 'lang.german'
+  | 'lang.fluent'
+  | 'lang.native'
+  | 'lang.a1'
   | 'tabs.education'
   | 'tabs.experience'
   | 'tabs.languages';
@@ -82,6 +98,13 @@ export const translations: Record<Language, Translations> = {
     'hero.view_projects': 'View Projects',
     'skills.title': 'Technical Skills',
     'skills.subtitle': 'Technologies I work with',
+    'skillsDescription': 'Technologies and tools I use in my projects',
+    'backend': 'Backend',
+    'frontend': 'Frontend',
+    'mobile': 'Mobile',
+    'database': 'Database',
+    'tools': 'Tools',
+    'others': 'Others',
     'projects.title': 'Projects',
     'projects.subtitle': 'Some of my recent work',
     'projects.view': 'View Project',
@@ -89,6 +112,12 @@ export const translations: Record<Language, Translations> = {
     'contact.title': 'Get In Touch',
     'contact.subtitle': 'I\'m currently available for freelance work. Feel free to reach out if you have a project in mind!',
     'contact.submit': 'Send Message',
+    'contact.email': 'Email',
+    'contact.contact_form': 'Contact Form',
+    'contact.connect': 'Connect with me',
+    'contact.send_message': 'Send me a message',
+    'contact.linkedin': 'LinkedIn',
+    'contact.address': 'Address',
     'edu.title': 'Education',
     'edu.degree': 'Bachelor of Applied Science',
     'edu.department': 'Computer Technology Department, Tishreen University',
@@ -101,6 +130,9 @@ export const translations: Record<Language, Translations> = {
     'lang.english': 'English',
     'lang.arabic': 'Arabic',
     'lang.german': 'German',
+    'lang.fluent': 'Fluent',
+    'lang.native': 'Native',
+    'lang.a1': 'A1',
     'tabs.education': 'Education',
     'tabs.experience': 'Experience',
     'tabs.languages': 'Languages',
@@ -132,6 +164,13 @@ export const translations: Record<Language, Translations> = {
     'hero.view_projects': 'عرض المشاريع',
     'skills.title': 'المهارات التقنية',
     'skills.subtitle': 'التقنيات التي أعمل بها',
+    'skillsDescription': 'التقنيات والأدوات التي أستخدمها في مشاريعي',
+    'backend': 'الواجهة الخلفية',
+    'frontend': 'الواجهة الأمامية',
+    'mobile': 'الجوال',
+    'database': 'قواعد البيانات',
+    'tools': 'الأدوات',
+    'others': 'أخرى',
     'projects.title': 'المشاريع',
     'projects.subtitle': 'بعض أعمالي الحديثة',
     'projects.view': 'عرض المشروع',
@@ -139,6 +178,12 @@ export const translations: Record<Language, Translations> = {
     'contact.title': 'تواصل معي',
     'contact.subtitle': 'أنا متاح حاليًا للعمل الحر. لا تتردد في التواصل إذا كان لديك مشروع في ذهنك!',
     'contact.submit': 'إرسال الرسالة',
+    'contact.email': 'البريد الإلكتروني',
+    'contact.contact_form': 'نموذج الاتصال',
+    'contact.connect': 'تواصل معي',
+    'contact.send_message': 'أرسل لي رسالة',
+    'contact.linkedin': 'لينكد إن',
+    'contact.address': 'العنوان',
     'edu.title': 'التعليم',
     'edu.degree': 'بكالوريوس في العلوم التطبيقية',
     'edu.department': 'الكلية التطبيقية، قسم تقنيات الحاسوب، جامعة تشرين',
@@ -151,6 +196,9 @@ export const translations: Record<Language, Translations> = {
     'lang.english': 'الإنجليزية',
     'lang.arabic': 'العربية',
     'lang.german': 'الألمانية',
+    'lang.fluent': 'طلاقة',
+    'lang.native': 'اللغة الأم',
+    'lang.a1': 'مستوى A1',
     'tabs.education': 'التعليم',
     'tabs.experience': 'الخبرة',
     'tabs.languages': 'اللغات',

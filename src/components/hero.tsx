@@ -118,22 +118,31 @@ export function Hero() {
           <div className="flex gap-4 pt-4">
             <button
               onClick={() => scrollToSection('contact')}
-              className="inline-flex h-10 items-center justify-center rounded-md px-6 text-sm font-medium shadow transition-colors"
+              className="inline-flex h-10 items-center justify-center rounded-md px-6 text-sm font-medium shadow transition-colors cursor-pointer gap-2"
               style={{ 
                 backgroundColor: 'hsl(var(--primary))', 
                 color: 'hsl(var(--primary-foreground))' 
               }}
             >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+              </svg>
               {t('hero.contact_me')}
             </button>
             <button
               onClick={() => scrollToSection('projects')}
-              className="inline-flex h-10 items-center justify-center rounded-md border px-6 text-sm font-medium shadow-sm transition-colors"
+              className="inline-flex h-10 items-center justify-center rounded-md border px-6 text-sm font-medium shadow-sm transition-colors cursor-pointer gap-2"
               style={{ 
                 backgroundColor: 'hsl(var(--background))', 
                 borderColor: 'hsl(var(--border))' 
               }}
             >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
+                <path d="M3 9V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4" />
+                <path d="M9 3v6" />
+                <path d="M15 3v6" />
+              </svg>
               {t('hero.view_projects')}
             </button>
           </div>
