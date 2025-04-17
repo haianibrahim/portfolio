@@ -87,7 +87,7 @@ export function Education() {
         
         {/* Tab navigation */}
         <div className="mx-auto max-w-3xl mb-8">
-          <div className="mb-6 flex w-full border-b">
+          <div className="mb-6 flex w-full justify-center border-b">
             <button
               onClick={() => setActiveTab("education")}
               className={cn(
@@ -112,7 +112,7 @@ export function Education() {
             <button
               onClick={() => setActiveTab("experience")}
               className={cn(
-                "relative ml-8 pb-2 text-sm font-medium transition-colors focus-visible:outline-none",
+                "relative mx-8 pb-2 text-sm font-medium transition-colors focus-visible:outline-none",
                 activeTab === "experience"
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
@@ -133,7 +133,7 @@ export function Education() {
             <button
               onClick={() => setActiveTab("languages")}
               className={cn(
-                "relative ml-8 pb-2 text-sm font-medium transition-colors focus-visible:outline-none",
+                "relative pb-2 text-sm font-medium transition-colors focus-visible:outline-none",
                 activeTab === "languages"
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
