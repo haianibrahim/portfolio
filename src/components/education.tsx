@@ -99,7 +99,7 @@ export function Education() {
               }`}
               aria-selected={activeTab === 'education'}
             >
-              {t('education')}
+              {t('tabs.education')}
               {/* Always show indicator, but style it differently based on active state */}
               <div className={`absolute bottom-0 left-0 w-full h-1 ${
                 activeTab === 'education' 
@@ -120,7 +120,7 @@ export function Education() {
               }`}
               aria-selected={activeTab === 'experience'}
             >
-              {t('experience')}
+              {t('tabs.experience')}
               {/* Always show indicator, but style it differently based on active state */}
               <div className={`absolute bottom-0 left-0 w-full h-1 ${
                 activeTab === 'experience' 
@@ -141,7 +141,7 @@ export function Education() {
               }`}
               aria-selected={activeTab === 'languages'}
             >
-              {language === 'en' ? 'Languages' : language === 'de' ? 'Sprachen' : <span className="arabic-text">اللغات</span>}
+              {t('tabs.languages')}
               {/* Always show indicator, but style it differently based on active state */}
               <div className={`absolute bottom-0 left-0 w-full h-1 ${
                 activeTab === 'languages' 
@@ -168,21 +168,21 @@ export function Education() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold">
-                  {language === 'en' ? 'Bachelor of Applied Science' : 
-                   language === 'de' ? 'Bachelor of Applied Science' : 
-                   <span className="arabic-text">بكالوريوس في العلوم التطبيقية</span>}
+                  <span className={language === 'ar' ? 'arabic-text' : ''}>
+                    {t('edu.degree')}
+                  </span>
                 </h3>
               </div>
               <div className="pl-13 ml-7 border-l-2 border-primary/20 py-1">
                 <p className="text-base mb-2" style={{ color: 'hsl(var(--foreground))' }}>
-                  {language === 'en' ? 'Computer Technology Department, Tishreen University' : 
-                   language === 'de' ? 'Abteilung für Computertechnologie, Tishreen-Universität' : 
-                   <span className="arabic-text">قسم تكنولوجيا المعلومات، جامعة تشرين</span>}
+                  <span className={language === 'ar' ? 'arabic-text' : ''}>
+                    {t('edu.department')}
+                  </span>
                 </p>
                 <p className="text-sm" style={{ color: 'hsl(var(--muted-foreground))' }}>
-                  {language === 'en' ? 'Latakia, Syria' : 
-                   language === 'de' ? 'Latakia, Syrien' : 
-                   <span className="arabic-text">اللاذقية، سوريا</span>}
+                  <span className={language === 'ar' ? 'arabic-text' : ''}>
+                    {t('edu.location')}
+                  </span>
                 </p>
               </div>
             </div>
@@ -202,26 +202,22 @@ export function Education() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">
-                    {language === 'en' ? 'Freelance Full Stack Developer' : 
-                     language === 'de' ? 'Freiberuflicher Full-Stack-Entwickler' : 
-                     <span className="arabic-text">مطور ويب متكامل - عمل حر</span>}
+                    <span className={language === 'ar' ? 'arabic-text' : ''}>
+                      {t('exp.position')}
+                    </span>
                   </h3>
                   <p className="text-sm font-medium mt-1" style={{ color: 'hsl(var(--primary))' }}>
-                    {language === 'en' ? '8+ years of experience' : 
-                     language === 'de' ? '8+ Jahre Erfahrung' : 
-                     <span className="arabic-text">+8 سنوات من الخبرة</span>}
+                    <span className={language === 'ar' ? 'arabic-text' : ''}>
+                      {t('exp.years')}
+                    </span>
                   </p>
                 </div>
               </div>
               <div className="pl-13 ml-7 border-l-2 border-primary/20 py-1">
                 <p className="text-base mb-2" style={{ color: 'hsl(var(--foreground))' }}>
-                  {language === 'en' 
-                    ? 'Specialized in building web and mobile applications using modern technologies like ReactJS, NextJS, Laravel, and more.'
-                    : language === 'de'
-                    ? 'Spezialisiert auf die Entwicklung von Web- und Mobilanwendungen mit modernen Technologien wie ReactJS, NextJS, Laravel und mehr.'
-                    : (
-                      <span className="arabic-text">متخصص في بناء تطبيقات الويب والهاتف المحمول باستخدام التقنيات الحديثة مثل ReactJS وNextJS وLaravel وغيرها.</span>
-                    )}
+                  <span className={language === 'ar' ? 'arabic-text' : ''}>
+                    {t('exp.specialization')}
+                  </span>
                 </p>
               </div>
             </div>
@@ -244,9 +240,9 @@ export function Education() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold">
-                  {language === 'en' ? 'Language Proficiency' : 
-                   language === 'de' ? 'Sprachkenntnisse' : 
-                   <span className="arabic-text">إتقان اللغات</span>}
+                  <span className={language === 'ar' ? 'arabic-text' : ''}>
+                    {t('lang.title')}
+                  </span>
                 </h3>
               </div>
               
@@ -255,13 +251,12 @@ export function Education() {
                 <div className="pl-13 ml-7">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="font-medium">
-                      {language === 'en' ? 'English' : 
-                       language === 'de' ? 'Englisch' : 
-                       <span className="arabic-text">الإنجليزية</span>}
+                      <span className={language === 'ar' ? 'arabic-text' : ''}>
+                        {t('lang.english')}
+                      </span>
                     </h4>
                     <span className="text-sm px-3 py-1 rounded-full" style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', color: 'hsl(var(--primary))' }}>
                       {language === 'en' ? 'Fluent' : 
-                       language === 'de' ? 'Fließend' : 
                        <span className="arabic-text">طلاقة</span>}
                     </span>
                   </div>
@@ -274,13 +269,12 @@ export function Education() {
                 <div className="pl-13 ml-7">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="font-medium">
-                      {language === 'en' ? 'Arabic' : 
-                       language === 'de' ? 'Arabisch' : 
-                       <span className="arabic-text">العربية</span>}
+                      <span className={language === 'ar' ? 'arabic-text' : ''}>
+                        {t('lang.arabic')}
+                      </span>
                     </h4>
                     <span className="text-sm px-3 py-1 rounded-full" style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', color: 'hsl(var(--primary))' }}>
                       {language === 'en' ? 'Native' : 
-                       language === 'de' ? 'Muttersprache' : 
                        <span className="arabic-text">اللغة الأم</span>}
                     </span>
                   </div>
@@ -293,13 +287,12 @@ export function Education() {
                 <div className="pl-13 ml-7">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="font-medium">
-                      {language === 'en' ? 'German' : 
-                       language === 'de' ? 'Deutsch' : 
-                       <span className="arabic-text">الألمانية</span>}
+                      <span className={language === 'ar' ? 'arabic-text' : ''}>
+                        {t('lang.german')}
+                      </span>
                     </h4>
                     <span className="text-sm px-3 py-1 rounded-full" style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', color: 'hsl(var(--primary))' }}>
                       {language === 'en' ? 'A1' : 
-                       language === 'de' ? 'A1' : 
                        <span className="arabic-text">مستوى A1</span>}
                     </span>
                   </div>
