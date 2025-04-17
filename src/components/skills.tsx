@@ -23,15 +23,19 @@ const skills = [
   { name: "ExpressJS", category: "Backend" },
   { name: "Laravel", category: "Backend" },
   { name: "Symfony", category: "Backend" },
-  { name: "Java", category: "Backend" },
+  { name: "Java", category: "Mobile" },
   { name: "Android", category: "Mobile" },
   { name: "API", category: "Backend" },
   { name: "MySQL", category: "Database" },
   { name: "MongoDB", category: "Database" },
   { name: "Appwrite", category: "BaaS" },
   { name: "Firebase", category: "BaaS" },
+  { name: "Supabase", category: "BaaS" },
   { name: "Unit Testing", category: "DevOps" },
   { name: "Git and GitHub", category: "DevOps" },
+  { name: "AI IDEs", category: "AI" },
+  { name: "AI Prompting", category: "AI" },
+  { name: "AI Fundamentals", category: "AI" },
 ]
 
 function SkillCard({ skill, index }: { skill: Skill, index: number }) {
