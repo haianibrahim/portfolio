@@ -173,7 +173,7 @@ export function Education() {
                   </span>
                 </h3>
               </div>
-              <div className="pl-13 ml-7 border-l-2 border-primary/20 py-1">
+              <div className="ps-13 ms-7 border-s-2 border-primary/20 py-1">
                 <p className="text-base mb-2" style={{ color: 'hsl(var(--foreground))' }}>
                   <span className={language === 'ar' ? 'arabic-text' : ''}>
                     {t('edu.department')}
@@ -213,7 +213,7 @@ export function Education() {
                   </p>
                 </div>
               </div>
-              <div className="pl-13 ml-7 border-l-2 border-primary/20 py-1">
+              <div className="ps-13 ms-7 border-s-2 border-primary/20 py-1">
                 <p className="text-base mb-2" style={{ color: 'hsl(var(--foreground))' }}>
                   <span className={language === 'ar' ? 'arabic-text' : ''}>
                     {t('exp.specialization')}
@@ -248,7 +248,7 @@ export function Education() {
               
               <div className="space-y-6">
                 {/* English */}
-                <div className="pl-13 ml-7">
+                <div className="ps-13 ms-7 border-s-2 border-primary/20 py-1">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="font-medium">
                       <span className={language === 'ar' ? 'arabic-text' : ''}>
@@ -266,7 +266,7 @@ export function Education() {
                 </div>
                 
                 {/* Arabic */}
-                <div className="pl-13 ml-7">
+                <div className="ps-13 ms-7 border-s-2 border-primary/20 py-1">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="font-medium">
                       <span className={language === 'ar' ? 'arabic-text' : ''}>
@@ -284,7 +284,7 @@ export function Education() {
                 </div>
                 
                 {/* German */}
-                <div className="pl-13 ml-7">
+                <div className="ps-13 ms-7 border-s-2 border-primary/20 py-1">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="font-medium">
                       <span className={language === 'ar' ? 'arabic-text' : ''}>
