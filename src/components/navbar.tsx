@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { LanguageToggle } from "./language-toggle";
 import { ThemeToggle } from "./theme-toggle";

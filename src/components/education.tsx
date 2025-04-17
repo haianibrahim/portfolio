@@ -3,8 +3,6 @@
 import React, { useRef, useEffect, useState } from "react"
 import { animate } from "animejs"
 import { useLanguage } from "@/contexts/language-context"
-import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
 
 export function Education() {
   const { t, language } = useLanguage()
@@ -98,11 +96,6 @@ export function Education() {
     window.addEventListener("resize", updateIndicator)
     return () => window.removeEventListener("resize", updateIndicator)
   }, [activeTab])
-
-  const tabVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
 
   return (
     <section id="education" ref={sectionRef} className="py-12 md:py-16 lg:py-20 bg-muted/30">

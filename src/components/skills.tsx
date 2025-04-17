@@ -3,6 +3,7 @@
 import * as React from "react"
 import { useAnime } from "@/hooks/use-anime"
 import { useLanguage } from "@/contexts/language-context"
+import { animate } from "animejs"
 
 type SkillType = "backend" | "frontend" | "mobile" | "database" | "tools" | "others"
 
@@ -30,11 +31,10 @@ export function Skills() {
       entries.forEach(entry => {
         if (entry.isIntersecting && cardsRef.current) {
           // Animate each card with staggered timing
-          useAnime({
-            targets: '.skill-card',
+          animate('.skill-card', {
             translateY: [50, 0],
             opacity: [0, 1],
-            delay: useAnime.stagger(100),
+            delay: (_el, i) => i * 100,
             duration: 800,
             easing: 'easeOutCubic',
           })
