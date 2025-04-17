@@ -203,7 +203,7 @@ export function ContactForm() {
           </div>
           
           {formStatus === "success" && (
-            <div className="form-success p-4 rounded-md bg-green-50 dark:bg-green-900/20 border-2 border-green-500 dark:border-green-800 text-green-900 dark:text-green-300">
+            <div className="form-success p-4 rounded-md bg-green-100 dark:bg-green-900/20 border-2 border-green-500 dark:border-green-800 text-green-700 dark:text-green-300 font-medium shadow-sm">
               {language === 'en' 
                 ? "Thank you for your message! I'll get back to you as soon as possible." 
                 : <span className="arabic-text">شكرًا لرسالتك! سأرد عليك في أقرب وقت ممكن.</span>}
