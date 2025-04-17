@@ -141,7 +141,7 @@ export const translations: Record<Language, Translations> = {
     'contact.submit': 'إرسال الرسالة',
     'edu.title': 'التعليم',
     'edu.degree': 'بكالوريوس في العلوم التطبيقية',
-    'edu.department': 'قسم تكنولوجيا المعلومات، جامعة تشرين',
+    'edu.department': 'الكلية التطبيقية، قسم تقنيات الحاسوب، جامعة تشرين',
     'edu.location': 'اللاذقية، سوريا',
     'exp.title': 'الخبرة',
     'exp.position': 'مطور ويب متكامل - عمل حر',
