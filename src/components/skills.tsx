@@ -55,7 +55,7 @@ export function Skills() {
     // Backend
     { name: "PHP", type: "backend" },
     { name: "Node.js", type: "backend" },
-    { name: "Express", type: "backend" },
+    { name: "Express.js", type: "backend" },
     { name: "Laravel", type: "backend" },
     { name: "Next.js", type: "backend" },
     

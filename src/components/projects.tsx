@@ -7,6 +7,20 @@ import { useLanguage } from "@/contexts/language-context"
 
 const projects = [
   {
+    title: "WebPlayz",
+    description: "Online Gaming Website",
+    descriptionAr: "موقع ألعاب أون لاين",
+    technologies: ["Laravel", "Tailwind CSS", "MySQL", "REST API"],
+    link: "https://webplayzz.com"
+  },
+  {
+    title: "WebPlayz API",
+    description: "RESTful API for WebPlayz to integrate games in other websites, authenticated using API Key and access is only from allowed domains.",
+    descriptionAr: "واجهة برمجة تطبيقات RESTful لـ WebPlayz لدمج الألعاب في مواقع أخرى، مصادقة باستخدام مفتاح API والوصول فقط من النطاقات المسموح بها.",
+    technologies: ["Laravel", "Auth", "REST API"],
+    link: "https://webplayzz.com/api-docs"
+  },
+  {
     title: "Zefoy Android App",
     description: "An app for TikTok Growth with +1M downloads",
     descriptionAr: "تطبيق لنمو متابعين تيك توك مع أكثر من مليون تحميل",
@@ -31,7 +45,7 @@ const projects = [
     title: "Movies Search App",
     description: "Educational project for searching movies",
     descriptionAr: "مشروع تعليمي للبحث عن الأفلام",
-    technologies: ["React 19", "React Hooks", "Debouncing", "Appwrite", "NoSQL", "TMDB API"],
+    technologies: ["React 19", "React Hooks", "Debouncing", "Tailwind CSS", "Appwrite", "NoSQL", "TMDB API"],
     link: "https://haian.me/demo/movies-app",
     github: "https://github.com/hki98/movies-search-app"
   }
