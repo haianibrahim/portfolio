@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react"
 import { useLanguage } from "@/contexts/language-context"
 import { animate } from "animejs"
+import { useTheme } from "next-themes"
 
 interface ContactFormProps {
   closeModal?: () => void;
@@ -10,6 +11,7 @@ interface ContactFormProps {
 
 export function ContactForm({ closeModal }: ContactFormProps) {
   const { language } = useLanguage()
+  const { theme } = useTheme()
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [formErrors, setFormErrors] = useState<{
     name?: string
@@ -212,7 +214,11 @@ export function ContactForm({ closeModal }: ContactFormProps) {
           </div>
           
           {formStatus === "success" && (
-            <div className="form-success p-4 rounded-md bg-green-100 dark:bg-green-900/20 border-2 border-green-500 dark:border-green-800 text-green-700 dark:text-green-300 font-medium shadow-sm">
+            <div className={`form-success p-4 rounded-md border-2 font-medium shadow-sm ${
+              theme === 'dark' 
+                ? 'bg-green-900/20 border-green-800 text-green-300' 
+                : 'bg-green-100 border-green-500 text-green-700'
+            }`}>
               {language === 'en' 
                 ? "Thank you for your message! I'll get back to you as soon as possible." 
                 : <span className="arabic-text">شكرًا لرسالتك! سأرد عليك في أقرب وقت ممكن.</span>}
@@ -220,7 +226,11 @@ export function ContactForm({ closeModal }: ContactFormProps) {
           )}
           
           {formStatus === "error" && (
-            <div className="form-error p-4 rounded-md bg-red-50 dark:bg-red-900/20 border-2 border-red-500 dark:border-red-800 text-red-900 dark:text-red-300">
+            <div className={`form-error p-4 rounded-md border-2 ${
+              theme === 'dark' 
+                ? 'bg-red-900/20 border-red-800 text-red-300' 
+                : 'bg-red-50 border-red-500 text-red-900'
+            }`}>
               {language === 'en' 
                 ? "There was an error sending your message. Please try again later or contact me directly." 
                 : <span className="arabic-text">حدث خطأ أثناء إرسال رسالتك. يرجى المحاولة مرة أخرى لاحقًا أو الاتصال بي مباشرة.</span>}
