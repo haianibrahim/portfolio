@@ -167,7 +167,7 @@ export function Contact() {
 
           {/* LinkedIn */}
           <a
-            href="https://www.linkedin.com/in/haian-ibrahim/"
+            href="https://www.linkedin.com/in/haian-k-Ibrahim/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center justify-center rounded-lg border p-6 text-center shadow-sm transition-all hover:shadow-md cursor-pointer"
@@ -236,7 +236,7 @@ export function Contact() {
         <div className="mx-auto mt-6 grid max-w-4xl">
           {/* Address */}
           <a
-            href="https://maps.google.com/?q=Eschenburgstr.,23568,Lübeck,Germany"
+            href="https://maps.google.com/?q=Lübeck,Germany"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center justify-center rounded-lg border p-6 text-center shadow-sm transition-all hover:shadow-md cursor-pointer"
@@ -269,9 +269,9 @@ export function Contact() {
             </h3>
             <p className="text-muted-foreground">
               {language === 'ar' ? (
-                <span className="arabic-text">شارع إيشنبورغ، ليوبيك، ألمانيا</span>
+                <span className="arabic-text">ليوبيك، ألمانيا</span>
               ) : (
-                "Eschenburgstr., 23568 Lübeck, Germany"
+                "Lübeck, Germany"
               )}
             </p>
           </a>
