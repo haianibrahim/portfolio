@@ -36,6 +36,8 @@ export type TranslationKeys =
   | 'projects.subtitle'
   | 'projects.view'
   | 'projects.github'
+  | 'projects.working_on'
+  | 'projects.open_source'
   | 'contact.title'
   | 'contact.subtitle'
   | 'contact.submit'
@@ -114,6 +116,8 @@ export const translations: Record<Language, Translations> = {
     'projects.subtitle': 'Some of my recent work',
     'projects.view': 'View Project',
     'projects.github': 'GitHub',
+    'projects.working_on': 'Working On',
+    'projects.open_source': 'Open Source, Educational and Side Projects',
     'contact.title': 'Get In Touch',
     'contact.subtitle': 'I\'m currently available for freelance work. Feel free to reach out if you have a project in mind!',
     'contact.submit': 'Send Message',
@@ -125,7 +129,7 @@ export const translations: Record<Language, Translations> = {
     'contact.address': 'Address',
     'edu.title': 'Education',
     'edu.degree': 'Bachelor of Applied Science',
-    'edu.department': 'Computer Technology Department, Tishreen University',
+    'edu.department': 'Faculty of Applied Science, Computer Technology Department, Tishreen University',
     'edu.location': 'Latakia, Syria',
     'exp.title': 'Experience',
     'exp.position': 'Freelance Full Stack Developer',
@@ -185,6 +189,8 @@ export const translations: Record<Language, Translations> = {
     'projects.subtitle': 'بعض أعمالي الحديثة',
     'projects.view': 'عرض المشروع',
     'projects.github': 'Github',
+    'projects.working_on': 'أعمل عليها حاليًا',
+    'projects.open_source': 'مشاريع مفتوحة المصدر وتعليمية وجانبية',
     'contact.title': 'تواصل معي',
     'contact.subtitle': 'أنا متاح حاليًا للعمل الحر. لا تتردد في التواصل إذا كان لديك مشروع في ذهنك!',
     'contact.submit': 'إرسال الرسالة',
@@ -196,7 +202,7 @@ export const translations: Record<Language, Translations> = {
     'contact.address': 'العنوان',
     'edu.title': 'التعليم',
     'edu.degree': 'بكالوريوس في العلوم التطبيقية',
-    'edu.department': 'الكلية التطبيقية، قسم تقنيات الحاسوب، جامعة تشرين',
+    'edu.department': 'كلية العلوم التطبيقية، قسم تقنيات الحاسوب، جامعة تشرين',
     'edu.location': 'اللاذقية، سوريا',
     'exp.title': 'الخبرة',
     'exp.position': 'مطور ويب متكامل - عمل حر',

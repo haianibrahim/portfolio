@@ -5,7 +5,16 @@ import { animate } from "animejs"
 import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
 
-const projects = [
+interface Project {
+  title: string
+  description: string
+  descriptionAr: string
+  technologies: string[]
+  link?: string
+  github?: string
+}
+
+const workingOnProjects: Project[] = [
   {
     title: "WebPlayz",
     description: "Online Gaming Website",
@@ -33,7 +42,10 @@ const projects = [
     descriptionAr: "الواجهة الخلفية لتطبيق زيفوي للأندرويد",
     technologies: ["Laravel 12", "Google Play Developer API", "JWT"],
     link: "https://play.google.com/store/apps/details?id=com.hkiapps.zefoynew&utm_source=portfolio&utm_medium=haianporfolio&campaign=myprojects"
-  },
+  }
+]
+
+const openSourceProjects: Project[] = [
   {
     title: "TikTok PHP Scraper",
     description: "A Super Fast scraper using only PHP",
@@ -162,75 +174,159 @@ export function Projects() {
         >
           {t('projects.title')}
         </h2>
-        <div className="projects-container grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {projects.map((project) => (
-            <div 
-              key={project.title} 
-              className="project-card flex flex-col rounded-xl border p-6 shadow-sm opacity-0 transition-all duration-300"
-              data-hovered="false"
-              style={{ backgroundColor: 'hsl(var(--card))' }}
-            >
-              <h3 className="text-xl font-bold">{project.title}</h3>
-              <p className="mt-2" style={{ color: 'hsl(var(--muted-foreground))' }}>
-                {language === 'ar' && project.descriptionAr ? (
-                  <span className="arabic-text">{project.descriptionAr}</span>
-                ) : (
-                  project.description
-                )}
-              </p>
-              
-              <div className="technologies-list mt-4 flex flex-wrap gap-2">
-                {project.technologies.slice(0, 3).map((tech) => (
-                  <span 
-                    key={tech} 
-                    className="rounded-full px-3 py-1 text-xs font-medium"
-                    style={{ 
-                      backgroundColor: 'hsl(var(--primary) / 0.1)', 
-                      color: 'hsl(var(--primary))' 
-                    }}
-                  >
-                    {tech}
-                  </span>
-                ))}
-                {project.technologies.length > 3 && (
-                  <span className="rounded-full px-2 py-1 text-xs font-medium"
-                    style={{ backgroundColor: 'hsl(var(--secondary))' }}
-                  >
-                    +{project.technologies.length - 3}
-                  </span>
-                )}
+        
+        {/* Working On Projects */}
+        <div className="mb-12">
+          <h3 className="mb-6 text-2xl font-bold tracking-tight">
+            {t('projects.working_on')}
+          </h3>
+          <div className="projects-container grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {workingOnProjects.map((project) => (
+              <div 
+                key={project.title} 
+                className="project-card flex flex-col rounded-xl border p-6 shadow-sm opacity-0 transition-all duration-300"
+                data-hovered="false"
+                style={{ backgroundColor: 'hsl(var(--card))' }}
+              >
+                <h3 className="text-xl font-bold">{project.title}</h3>
+                <p className="mt-2" style={{ color: 'hsl(var(--muted-foreground))' }}>
+                  {language === 'ar' && project.descriptionAr ? (
+                    <span className="arabic-text">{project.descriptionAr}</span>
+                  ) : (
+                    project.description
+                  )}
+                </p>
+                
+                <div className="technologies-list mt-4 flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 3).map((tech) => (
+                    <span 
+                      key={tech} 
+                      className="rounded-full px-3 py-1 text-xs font-medium"
+                      style={{ 
+                        backgroundColor: 'hsl(var(--primary) / 0.1)', 
+                        color: 'hsl(var(--primary))' 
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="rounded-full px-2 py-1 text-xs font-medium"
+                      style={{ backgroundColor: 'hsl(var(--secondary))' }}
+                    >
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+                
+                <div className="mt-auto pt-4 flex gap-2">
+                  {project.link && (
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      className="inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium shadow transition-colors"
+                      style={{ 
+                        backgroundColor: 'hsl(var(--primary))', 
+                        color: 'hsl(var(--primary-foreground))' 
+                      }}
+                    >
+                      {t('projects.view')}
+                    </Link>
+                  )}
+                  {project.github && (
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      className="inline-flex h-9 items-center justify-center rounded-md border px-4 text-sm font-medium shadow-sm transition-colors"
+                      style={{ 
+                        backgroundColor: 'hsl(var(--background))', 
+                        borderColor: 'hsl(var(--border))' 
+                      }}
+                    >
+                      {t('projects.github')}
+                    </Link>
+                  )}
+                </div>
               </div>
-              
-              <div className="mt-auto pt-4 flex gap-2">
-                {project.link && (
-                  <Link
-                    href={project.link}
-                    target="_blank"
-                    className="inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium shadow transition-colors"
-                    style={{ 
-                      backgroundColor: 'hsl(var(--primary))', 
-                      color: 'hsl(var(--primary-foreground))' 
-                    }}
-                  >
-                    {t('projects.view')}
-                  </Link>
-                )}
-                {project.github && (
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    className="inline-flex h-9 items-center justify-center rounded-md border px-4 text-sm font-medium shadow-sm transition-colors"
-                    style={{ 
-                      backgroundColor: 'hsl(var(--background))', 
-                      borderColor: 'hsl(var(--border))' 
-                    }}
-                  >
-                    {t('projects.github')}
-                  </Link>
-                )}
+            ))}
+          </div>
+        </div>
+
+        {/* Open Source, Educational and Side Projects */}
+        <div>
+          <h3 className="mb-6 text-2xl font-bold tracking-tight">
+            {t('projects.open_source')}
+          </h3>
+          <div className="projects-container grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {openSourceProjects.map((project) => (
+              <div 
+                key={project.title} 
+                className="project-card flex flex-col rounded-xl border p-6 shadow-sm opacity-0 transition-all duration-300"
+                data-hovered="false"
+                style={{ backgroundColor: 'hsl(var(--card))' }}
+              >
+                <h3 className="text-xl font-bold">{project.title}</h3>
+                <p className="mt-2" style={{ color: 'hsl(var(--muted-foreground))' }}>
+                  {language === 'ar' && project.descriptionAr ? (
+                    <span className="arabic-text">{project.descriptionAr}</span>
+                  ) : (
+                    project.description
+                  )}
+                </p>
+                
+                <div className="technologies-list mt-4 flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 3).map((tech) => (
+                    <span 
+                      key={tech} 
+                      className="rounded-full px-3 py-1 text-xs font-medium"
+                      style={{ 
+                        backgroundColor: 'hsl(var(--primary) / 0.1)', 
+                        color: 'hsl(var(--primary))' 
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="rounded-full px-2 py-1 text-xs font-medium"
+                      style={{ backgroundColor: 'hsl(var(--secondary))' }}
+                    >
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+                
+                <div className="mt-auto pt-4 flex gap-2">
+                  {project.link && (
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      className="inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium shadow transition-colors"
+                      style={{ 
+                        backgroundColor: 'hsl(var(--primary))', 
+                        color: 'hsl(var(--primary-foreground))' 
+                      }}
+                    >
+                      {t('projects.view')}
+                    </Link>
+                  )}
+                  {project.github && (
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      className="inline-flex h-9 items-center justify-center rounded-md border px-4 text-sm font-medium shadow-sm transition-colors"
+                      style={{ 
+                        backgroundColor: 'hsl(var(--background))', 
+                        borderColor: 'hsl(var(--border))' 
+                      }}
+                    >
+                      {t('projects.github')}
+                    </Link>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
