@@ -137,7 +137,7 @@ export function Contact() {
         <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
           {/* GitHub */}
           <a
-            href="https://github.com/hki98"
+            href="https://github.com/haianibrahim"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center justify-center rounded-lg border p-6 text-center shadow-sm transition-all hover:shadow-md cursor-pointer"
@@ -162,7 +162,7 @@ export function Contact() {
               </svg>
             </div>
             <h3 className="mb-2 text-lg font-medium">GitHub</h3>
-            <p className="text-muted-foreground">@hki98</p>
+            <p className="text-muted-foreground">@haianibrahim</p>
           </a>
 
           {/* LinkedIn */}

@@ -47,6 +47,13 @@ const workingOnProjects: Project[] = [
 
 const openSourceProjects: Project[] = [
   {
+    title: "Personal Portfolio",
+    description: "Modern responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS",
+    descriptionAr: "موقع معرض أعمال شخصي حديث ومتجاوب مبني باستخدام Next.js و TypeScript و Tailwind CSS",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React", "i18n", "Responsive Design"],
+    github: "https://github.com/haianibrahim/portfolio"
+  },
+  {
     title: "TikTok PHP Scraper",
     description: "A Super Fast scraper using only PHP",
     descriptionAr: "أداة استخراج بيانات سريعة جدًا باستخدام PHP فقط",
