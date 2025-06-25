@@ -71,7 +71,14 @@ export type TranslationKeys =
   | 'nav.about'
   | 'nav.education'
   | 'nav.projects'
-  | 'nav.contact';
+  | 'nav.contact'
+  | 'chatbot.title'
+  | 'chatbot.welcome'
+  | 'chatbot.placeholder'
+  | 'chatbot.send'
+  | 'chatbot.typing'
+  | 'chatbot.close'
+  | 'chatbot.minimize';
 
 export type Translations = {
   [key in TranslationKeys]: string;
@@ -150,6 +157,13 @@ export const translations: Record<Language, Translations> = {
     'nav.education': 'Education',
     'nav.projects': 'Projects',
     'nav.contact': 'Contact',
+    'chatbot.title': 'Haian\'s AI Assistant',
+    'chatbot.welcome': 'Hello! I\'m Haian\'s AI assistant. I can help you learn more about Haian\'s skills, experience, projects, and background. What would you like to know?',
+    'chatbot.placeholder': 'Ask me anything about Haian...',
+    'chatbot.send': 'Send',
+    'chatbot.typing': 'Typing...',
+    'chatbot.close': 'Close',
+    'chatbot.minimize': 'Minimize',
   },
   ar: {
     'websiteMetadata.title': 'معرض أعمالي',
@@ -223,5 +237,12 @@ export const translations: Record<Language, Translations> = {
     'nav.education': 'التعليم',
     'nav.projects': 'المشاريع',
     'nav.contact': 'اتصل بي',
+    'chatbot.title': 'مساعد حيان الذكي',
+    'chatbot.welcome': 'مرحباً! أنا مساعد حيان الذكي. يمكنني مساعدتك في التعرف على مهارات حيان وخبراته ومشاريعه وخلفيته. ماذا تريد أن تعرف؟',
+    'chatbot.placeholder': 'اسألني أي شيء عن حيان...',
+    'chatbot.send': 'إرسال',
+    'chatbot.typing': 'جاري الكتابة...',
+    'chatbot.close': 'إغلاق',
+    'chatbot.minimize': 'تصغير',
   }
 }; 

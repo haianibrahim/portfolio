@@ -5,7 +5,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 
-A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features smooth animations, dark/light mode, multilingual support (English and Arabic), and a Formspree-powered contact form.
+A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features smooth animations, dark/light mode, multilingual support (English and Arabic), an AI-powered chatbot, and a Formspree-powered contact form.
 
 ## ✨ Live Demo
 
@@ -14,11 +14,13 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 ## 🌟 Features
 
 - ⚡ **Next.js 15** with App Router for optimal performance
+- 🤖 **AI-Powered Chatbot** with OpenAI integration and multilingual support
 - 🎨 **Theme Switching** between light and dark modes
 - 🌐 **Multilingual Support** for English and Arabic with RTL handling
 - 📱 **Fully Responsive** design for all device sizes
 - ✨ **Smooth Animations** using Anime.js and Framer Motion
 - 📝 **Contact Form** powered by Formspree
+- 🔒 **Security-First AI** with multi-layer protection against abuse
 - 🔍 **SEO Optimized** with proper metadata
 - 🎭 **Custom Arabic Typography** with proper font rendering
 
@@ -27,6 +29,8 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - **Framework**: Next.js 15
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
+- **AI**: OpenAI GPT-3.5-turbo
+- **Markdown**: React Markdown
 - **Icons**: React Icons
 - **Animations**: Anime.js, Framer Motion
 - **Form Handling**: Formspree
@@ -37,6 +41,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 
 - Node.js 18.17.0 or later
 - npm or yarn
+- OpenAI API key (for AI chatbot)
 
 ### Installation
 
@@ -53,24 +58,49 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
    yarn
    ```
 
-3. Create an `.env` file based on `.env.example`
-   ```bash
-   cp .env.example .env
-   ```
-   
-4. Update the Formspree endpoint in the `.env` file
-   ```
-   NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/your-endpoint-here
+3. Create a `.env.local` file in your project root
+   ```env
+   # OpenAI API Configuration (required for AI chatbot)
+   OPENAI_API_KEY=your_openai_api_key_here
+
+   # Contact Form Configuration (optional)
+   NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_formspree_endpoint_here
    ```
 
-5. Start the development server
+4. Start the development server
    ```bash
    npm run dev
    # or
    yarn dev
    ```
 
-6. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## 🤖 AI Chatbot Features
+
+The portfolio includes an intelligent AI assistant that provides information about the portfolio owner's professional background:
+
+### 🔒 Security & Protection
+- **Multi-layer filtering** with 75+ forbidden patterns
+- **Bilingual protection** (English and Arabic)
+- **Portfolio-only responses** - no general AI assistance
+- **Cost optimization** with token limits and smart caching
+- **Creative bypass prevention** against spoken language attempts
+
+### 💬 User Experience
+- **Floating chat button** with smooth animations
+- **Markdown support** for formatted responses
+- **Multilingual interface** matching website language
+- **Theme-aware design** for light/dark modes
+- **Mobile-optimized** chat interface
+
+### 🛡️ Automatic Rejection
+The AI automatically rejects questions about:
+- General programming tutorials
+- Technology explanations  
+- Learning resources or advice
+- Career guidance
+- Code examples or best practices
 
 ## 📂 Project Structure
 
@@ -78,18 +108,31 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 portfolio/
 ├── public/          # Static assets
 ├── src/
-│   ├── app/         # App router pages
-│   ├── components/  # React components
-│   ├── contexts/    # Context providers
-│   ├── hooks/       # Custom hooks
-│   ├── providers/   # Provider components
-│   └── translations/ # Translation files
-├── .env.example     # Environment variables example
-├── next.config.ts   # Next.js configuration
-└── tailwind.config.ts # Tailwind CSS configuration
+│   ├── app/
+│   │   └── api/
+│   │       └── chatbot/  # AI chatbot API endpoint
+│   │   ├── components/
+│   │   │   ├── chatbot.tsx   # AI chatbot component
+│   │   │   └── ...          # Other components
+│   │   ├── contexts/        # Context providers
+│   │   ├── hooks/          # Custom hooks
+│   │   ├── providers/      # Provider components
+│   │   └── translations/   # Translation files
+│   ├── .env.local          # Environment variables (create this)
+│   ├── next.config.ts      # Next.js configuration
+│   └── tailwind.config.ts  # Tailwind CSS configuration
 ```
 
 ## 🔧 Customization
+
+### AI Chatbot Configuration
+
+The AI chatbot is configured in `src/app/api/chatbot/route.ts`. You can customize:
+
+- **Portfolio context** - Update the `PORTFOLIO_CONTEXT` constant with your information
+- **Forbidden patterns** - Add/modify patterns in `FORBIDDEN_PATTERNS` array
+- **Response validation** - Adjust keywords in `REQUIRED_HAIAN_KEYWORDS`
+- **OpenAI settings** - Modify temperature, max_tokens, etc.
 
 ### Theme Colors
 
@@ -119,6 +162,7 @@ Update the personal information in the respective components:
 - `src/components/education.tsx` - Education and experience
 - `src/components/projects.tsx` - Portfolio projects
 - `src/components/contact.tsx` - Contact information
+- `src/app/api/chatbot/route.ts` - AI chatbot knowledge base
 
 ## 🌙 Theme Toggle
 
@@ -150,6 +194,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [OpenAI](https://openai.com/)
+- [React Markdown](https://github.com/remarkjs/react-markdown)
 - [Anime.js](https://animejs.com/)
 - [Formspree](https://formspree.io/)
 
