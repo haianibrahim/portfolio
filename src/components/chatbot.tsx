@@ -130,7 +130,7 @@ export function Chatbot() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-40 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 ${
+        className={`fixed bottom-6 left-6 z-40 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 ${
           isOpen ? 'hidden' : 'block'
         }`}
         style={{
@@ -158,7 +158,7 @@ export function Chatbot() {
 
       {/* Chatbot Modal */}
       {isOpen && (
-        <div className={`fixed bottom-6 right-6 z-50 w-96 h-[500px] rounded-lg shadow-2xl border transition-all duration-300 ${
+        <div className={`fixed bottom-6 left-6 z-50 w-96 h-[500px] rounded-lg shadow-2xl border transition-all duration-300 ${
           isMinimized ? 'h-16' : 'h-[500px]'
         }`}
         style={{
