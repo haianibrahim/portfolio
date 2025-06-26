@@ -60,7 +60,10 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 
 3. Create a `.env.local` file in your project root
    ```env
-   # OpenAI API Configuration (required for AI chatbot)
+   # AI Chatbot Control (set to false to disable chatbot completely)
+   NEXT_PUBLIC_AI_CHAT=true
+
+   # OpenAI API Configuration (only required when AI_CHAT=true)
    OPENAI_API_KEY=your_openai_api_key_here
 
    # CV Download Link (optional, for AI chatbot CV responses)
@@ -145,6 +148,47 @@ The AI chatbot is configured in `src/app/api/chatbot/route.ts`. You can customiz
 - **Forbidden patterns** - Add/modify patterns in `FORBIDDEN_PATTERNS` array
 - **Response validation** - Adjust keywords in `REQUIRED_HAIAN_KEYWORDS`
 - **OpenAI settings** - Modify temperature, max_tokens, etc.
+
+### Environment Variables
+
+Control which features are enabled in your portfolio:
+
+#### Required Variables
+```env
+NEXT_PUBLIC_AI_CHAT=true  # Set to false to disable AI chatbot completely
+```
+
+#### Optional Variables (when features are enabled)
+```env
+# Only needed when NEXT_PUBLIC_AI_CHAT=true
+OPENAI_API_KEY=your_openai_api_key_here
+
+# For CV downloads (optional)
+CV_LINK=https://your-domain.com/path/to/cv.pdf
+
+# For contact form (optional) 
+NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_formspree_endpoint
+```
+
+#### Feature Control Examples
+
+**Full Portfolio with AI Chatbot:**
+```env
+NEXT_PUBLIC_AI_CHAT=true
+OPENAI_API_KEY=your_api_key
+```
+
+**Portfolio without AI Chatbot (cost-saving):**
+```env
+NEXT_PUBLIC_AI_CHAT=false
+# No OpenAI API key needed
+```
+
+**Contact Form Only:**
+```env
+NEXT_PUBLIC_AI_CHAT=false
+NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_endpoint
+```
 
 ### Theme Colors
 

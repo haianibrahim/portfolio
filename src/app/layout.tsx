@@ -33,6 +33,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isChatbotEnabled = process.env.NEXT_PUBLIC_AI_CHAT === 'true';
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -46,7 +48,7 @@ export default function RootLayout({
         >
           <LanguageProvider>
             {children}
-            <Chatbot />
+            {isChatbotEnabled && <Chatbot />}
           </LanguageProvider>
         </ThemeProvider>
       </body>

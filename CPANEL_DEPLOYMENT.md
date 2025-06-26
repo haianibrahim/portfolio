@@ -2,7 +2,7 @@
 
 ## Prerequisites
 - cPanel hosting with Node.js support
-- OpenAI API key (for chatbot functionality)
+- OpenAI API key (only if you want to enable the AI chatbot)
 
 ## Step 1: Upload Files
 
@@ -47,12 +47,28 @@
    - Find "Environment Variables" section
    - Add these variables:
 
+### Required Variables:
 ```
-OPENAI_API_KEY=your_actual_openai_api_key
 NODE_ENV=production
-CV_LINK=https://your-domain.com/path/to/cv.pdf (optional)
-NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_formspree_endpoint (optional)
+NEXT_PUBLIC_AI_CHAT=true
 ```
+
+### Optional Variables (based on features you want):
+```
+# Only needed if NEXT_PUBLIC_AI_CHAT=true
+OPENAI_API_KEY=your_actual_openai_api_key
+
+# For CV download functionality
+CV_LINK=https://your-domain.com/path/to/cv.pdf
+
+# For contact form
+NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_formspree_endpoint
+```
+
+### AI Chatbot Control:
+- Set `NEXT_PUBLIC_AI_CHAT=true` to enable the AI chatbot
+- Set `NEXT_PUBLIC_AI_CHAT=false` to disable the AI chatbot completely
+- If disabled, you don't need the OpenAI API key
 
 ## Step 5: Build and Start
 
@@ -72,6 +88,26 @@ NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_formspree_endpoint (optional)
 2. **If using main domain**:
    - Ensure the application root is set correctly
    - May need to adjust .htaccess files
+
+## Feature Control Options
+
+### Option 1: Full Portfolio with AI Chatbot
+```
+NEXT_PUBLIC_AI_CHAT=true
+OPENAI_API_KEY=your_actual_openai_api_key
+```
+
+### Option 2: Portfolio without AI Chatbot (saves costs)
+```
+NEXT_PUBLIC_AI_CHAT=false
+```
+(No need for OpenAI API key)
+
+### Option 3: Portfolio with Contact Form only
+```
+NEXT_PUBLIC_AI_CHAT=false
+NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_formspree_endpoint
+```
 
 ## Troubleshooting
 
@@ -94,9 +130,14 @@ NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_formspree_endpoint (optional)
    - Ensure sufficient disk space
    - Check error logs in cPanel
 
-5. **Chatbot not working**:
+5. **Chatbot not working** (when enabled):
+   - Verify `NEXT_PUBLIC_AI_CHAT=true`
    - Verify OPENAI_API_KEY is set correctly
    - Check API key permissions and billing
+
+6. **Chatbot button not showing**:
+   - Check if `NEXT_PUBLIC_AI_CHAT=true`
+   - Restart the application after changing this variable
 
 ### File Structure After Upload:
 ```
@@ -116,13 +157,21 @@ your-app-directory/
 - Always run `npm run build` before starting
 - Environment variables are case-sensitive
 - Check cPanel error logs if application won't start
+- The `NEXT_PUBLIC_AI_CHAT` variable controls if the chatbot appears at all
 
 ## Testing Your Deployment
 
 1. Visit your domain/subdomain
-2. Test the chatbot functionality
-3. Test the contact form
-4. Check both light and dark themes
-5. Test on mobile devices
+2. Test basic functionality (theme switching, language switching)
+3. If `NEXT_PUBLIC_AI_CHAT=true`: Test the chatbot functionality
+4. Test the contact form (if configured)
+5. Check both light and dark themes
+6. Test on mobile devices
+
+## Cost Optimization
+
+- **Disable AI Chatbot**: Set `NEXT_PUBLIC_AI_CHAT=false` to completely remove the chatbot and avoid OpenAI costs
+- **Static Features Only**: The portfolio works perfectly without the AI chatbot
+- **Selective Features**: Enable only the features you need
 
 If you encounter issues, check the application logs in your cPanel Node.js interface. 
