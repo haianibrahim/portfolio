@@ -28,7 +28,6 @@ const REQUIRED_HAIAN_KEYWORDS = [
 
 // Function to check if message is asking for CV/Resume
 function isAskingForCV(message: string): boolean {
-  const lowerMessage = message.toLowerCase()
   const cvPatterns = [
     /\bcv\b/i, /\bresume\b/i, /curriculum vitae/i, /download.*cv/i, /download.*resume/i,
     /get.*cv/i, /get.*resume/i, /view.*cv/i, /view.*resume/i, /see.*cv/i, /see.*resume/i,
@@ -43,7 +42,6 @@ function isAskingForCV(message: string): boolean {
 
 // Function to check if message is asking for social media links
 function isAskingForSocial(message: string): boolean {
-  const lowerMessage = message.toLowerCase()
   const socialPatterns = [
     // LinkedIn patterns
     /linkedin/i, /linked in/i, /professional profile/i, /business profile/i,
