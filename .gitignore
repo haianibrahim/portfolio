@@ -16,6 +16,7 @@
 # next.js
 /.next/
 /out/
+/dist/
 
 # production
 /build
@@ -46,3 +47,4 @@ next-env.d.ts
 
 # project specific
 INSTRUCTIONS.md
+DEPLOYMENT.md
