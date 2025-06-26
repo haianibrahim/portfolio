@@ -1,11 +1,13 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    unoptimized: true,
+    unoptimized: true, // disables automatic image optimization (works better on non-Vercel platforms)
   },
-  distDir: 'dist',
-  /* config options here */
+  distDir: 'out', // optional; just make sure your server references the right build output
+  output: 'standalone', // bundles only the necessary server files for deployment
+  reactStrictMode: true, // good practice
+  poweredByHeader: false, // hides "X-Powered-By: Next.js"
 };
 
 export default nextConfig;
