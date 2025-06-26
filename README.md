@@ -63,6 +63,9 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
    # OpenAI API Configuration (required for AI chatbot)
    OPENAI_API_KEY=your_openai_api_key_here
 
+   # CV Download Link (optional, for AI chatbot CV responses)
+   CV_LINK=https://your-cv-hosting-service.com/your-cv.pdf
+
    # Contact Form Configuration (optional)
    NEXT_PUBLIC_FORMSPREE_ENDPOINT=your_formspree_endpoint_here
    ```
@@ -90,6 +93,7 @@ The portfolio includes an intelligent AI assistant that provides information abo
 ### 💬 User Experience
 - **Floating chat button** with smooth animations
 - **Markdown support** for formatted responses
+- **Interactive CV downloads** with styled download buttons
 - **Multilingual interface** matching website language
 - **Theme-aware design** for light/dark modes
 - **Mobile-optimized** chat interface
@@ -101,6 +105,13 @@ The AI automatically rejects questions about:
 - Learning resources or advice
 - Career guidance
 - Code examples or best practices
+
+### 📄 CV/Resume Downloads
+When users ask for CV or resume:
+- **Automatic detection** of CV-related questions in English and Arabic
+- **Interactive download button** with professional styling
+- **Direct file access** via environment-configured link
+- **Bilingual support** for CV requests and responses
 
 ## 📂 Project Structure
 
@@ -130,6 +141,7 @@ portfolio/
 The AI chatbot is configured in `src/app/api/chatbot/route.ts`. You can customize:
 
 - **Portfolio context** - Update the `PORTFOLIO_CONTEXT` constant with your information
+- **CV download link** - Set `CV_LINK` environment variable for resume downloads
 - **Forbidden patterns** - Add/modify patterns in `FORBIDDEN_PATTERNS` array
 - **Response validation** - Adjust keywords in `REQUIRED_HAIAN_KEYWORDS`
 - **OpenAI settings** - Modify temperature, max_tokens, etc.
