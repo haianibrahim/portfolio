@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/haiazhqe/ptest
+    - /bin/cp -R * $DEPLOYPATH
